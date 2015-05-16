@@ -1,0 +1,46 @@
+<template name="newNav">
+
+  <header id="header" class="m-standard m-enable-fixed m-fixed-bg">
+
+
+
+    <div class="header-inner">
+				<div class="container">
+
+					<!-- HEADER CONTENT : begin -->
+					<div class="header-content">
+
+						<!-- HEADER BRANDING : begin -->
+						<div class="header-branding">
+							<div class="header-branding-inner">
+                {{> Template.dynamic template=logoTemplate}}
+							</div>
+						</div>
+						<!-- HEADER BRANDING : end -->
+
+						<!-- HEADER MENU : begin -->
+						<nav class="header-menu">
+
+              {{#if isLoggedIn}}
+                {{> menuComponent menuName="user" menuLabel=menuLabel menuItems=menuItems menuClass="header-submodule" menuMode=menuMode menuCollapsed=true}}
+              {{else}}
+              <ul>
+                <li><a class="account-link sign-in" href="{{pathFor route='atSignUp'}}">{{_ "sign_up"}}</a></li>
+                <li><a class="account-link sign-up" href="{{pathFor route='atSignIn'}}">{{_ "sign_in"}}</a></li>
+              </ul>
+              {{/if}}
+						</nav>
+						<!-- HEADER MENU : end -->
+
+					</div>
+					<!-- HEADER CONTENT : end -->
+
+					<!-- MAIN SIDEBAR TOGGLE : begin -->
+					<button class="main-sidebar-toggle mobile-menu-button" type="button"><i class="fa fa-bars" href="#menu"></i></button>
+					<!-- MAIN SIDEBAR TOGGLE : end -->
+
+				</div>
+			</div>
+  </header>
+
+</template>
